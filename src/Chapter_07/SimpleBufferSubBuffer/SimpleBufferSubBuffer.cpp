@@ -96,8 +96,8 @@ int main(int argc, char** argv)
        (errNum != CL_SUCCESS) ? errNum : (numPlatforms <= 0 ? -1 : CL_SUCCESS), 
        "clGetPlatformIDs");
 
-    std::ifstream srcFile("simple.cl");
-    checkErr(srcFile.is_open() ? CL_SUCCESS : -1, "reading simple.cl");
+    std::ifstream srcFile("SimpleBufferSubBuffer.cl");
+    checkErr(srcFile.is_open() ? CL_SUCCESS : -1, "reading SimpleBufferSubBuffer.cl");
 
     std::string srcProg(
         std::istreambuf_iterator<char>(srcFile),
