@@ -411,11 +411,11 @@ int main(int argc, char** argv)
     //  If that is not available, then create the program from source
     //  and store the binary for future use.
     std::cout << "Attempting to create program from binary..." << std::endl;
-    program = CreateProgramFromBinary(context, device, "HelloWorld.cl.bin");
+    program = CreateProgramFromBinary(context, device, "HelloBinaryWorld.cl.bin");
     if (program == NULL)
     {
         std::cout << "Binary not loaded, create from source..." << std::endl;
-        program = CreateProgram(context, device, "HelloWorld.cl");
+        program = CreateProgram(context, device, "HelloBinaryWorld.cl");
         if (program == NULL)
         {
             Cleanup(context, commandQueue, program, kernel, memObjects);
@@ -423,7 +423,7 @@ int main(int argc, char** argv)
         }
 
         std::cout << "Save program binary for future run..." << std::endl;
-        if (SaveProgramBinary(program, device, "HelloWorld.cl.bin") == false)
+        if (SaveProgramBinary(program, device, "HelloBinaryWorld.cl.bin") == false)
         {
             std::cerr << "Failed to write program binary" << std::endl;
             Cleanup(context, commandQueue, program, kernel, memObjects);
